@@ -1,6 +1,6 @@
 package com.praveen.controller;
 
-import java.util.List;
+//import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,46 +17,47 @@ import com.praveen.service.OwnerService;
 public class OwnerController {
 	
 	@Autowired
-	private OwnerService userservice;
+	private OwnerService ownerservice;
 	
 	@RequestMapping(value="/displayForm")
-	public String DisplayUserForm(Model model) {
+	public String DisplayownerForm(Model model) {
 		
-		Owner user = new Owner(); //pojo
+		Owner owner = new Owner(); //pojo
 		
 		// sending data from controller to ui
 		
-		model.addAttribute("userObj", user);
+		model.addAttribute("ownerObj", owner);
 		
 		return "index"; //logical view name
 	}
-	@RequestMapping(value="/saveUser", method = RequestMethod.POST)
-	public String handlesubmitBtn(@ModelAttribute("userObj") Owner user, Model model) {
+	@RequestMapping(value="/saveowner", method = RequestMethod.POST)
+	public String handlesubmitBtn(@ModelAttribute("ownerObj") Owner owner, Model model) {
 		
-		System.out.println(user);
+		System.out.println(owner);
 		
-		boolean isSaved = userservice.saveUserDetails(user);
+		boolean isSaved = ownerservice.saveownerDetails(owner);
 		if(isSaved) {
 			model.addAttribute("succMsg", "Record saved sucessfully");
 		}else {
 			model.addAttribute("errMsg", "Record is not Saved");
 		}
 		
-		model.addAttribute("user",user);
+		model.addAttribute("owner",owner);
 		
 		return "index";
 	}
-	
-	@RequestMapping("/viewUsers")
-	public String viewUsers(Model model) {
-		
-		List<Owner> usersList = userservice.retriveAllUsers();
-		
-		// send data from controller data to presentation layer
-		
-		model.addAttribute("users",usersList);
-		
-		return "Users";
-	}
-
 }
+	
+/*
+ * @RequestMapping("/viewowners") public String viewowners(Model model) {
+ * 
+ * List<Owner> ownersList = ownerservice.retriveAllowners();
+ * 
+ * // send data from controller data to presentation layer
+ * 
+ * model.addAttribute("owners",ownersList);
+ * 
+ * return "owners"; }
+ * 
+ * }
+ */

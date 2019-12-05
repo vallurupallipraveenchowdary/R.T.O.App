@@ -11,18 +11,18 @@
 </head>
 <body>
 
- <p>Users Details</p>
+ <p>Owners Details</p>
  
  <table border="1">
- <c:forEach items="${users}" var="user">
+ <c:forEach items="${owners}" var="owner">
  
  
  <tr>
- <td><c:out value="${user.firstName}"/></td>
-  <td><c:out value="${user.lastName}"/></td>
-   <td><c:out value="${user.email}"/></td>
-    <td><c:out value="${user.phno}"/></td>
-     <td><c:out value="${user.gender}"/></td>
+ <td><c:out value="${owner.firstName}"/></td>
+  <td><c:out value="${owner.lastName}"/></td>
+   <td><c:out value="${owner.email}"/></td>
+    <td><c:out value="${owner.phno}"/></td>
+     <td><c:out value="${owner.gender}"/></td>
       
       
  </tr>
@@ -32,6 +32,6 @@
 
 </table>
 
-<a href="displayForm">AddUser</a>
+<a href="displayForm">AddOwner</a>
 </body>
 </html>

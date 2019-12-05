@@ -1,36 +1,21 @@
-package com.praveen.entity;
+package com.praveen.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+
 
 import lombok.Data;
 
 @Data
-@Entity
-@Table(name = "VEHICLE_OWNER_DETAILS")
-public class OwnerEntity {
-
-	@Id
-	@GeneratedValue
-	@Column(name="USER_ID")
+public class Owner {
 	
-	private Integer Userid;
+  
+	private Integer ownerid;
+	
 	private String firstName;
-	
 	private String lastName;
 	private String email;
 	private Long phno;
 	private String gender;
 	
-	public Integer getUserid() {
-		return Userid;
-	}
-	public void setUserid(Integer userid) {
-		this.Userid = userid;
-	}
 	public String getFirstName() {
 		return firstName;
 	}
@@ -61,5 +46,14 @@ public class OwnerEntity {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
+	
+	public Integer getownerid() {
+		return ownerid;
+	}
+	public void setownerid(Integer ownerid) {
+		this.ownerid = ownerid;
+	}
+	
+	
 	
 }

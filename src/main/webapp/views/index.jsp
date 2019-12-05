@@ -7,45 +7,65 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>User Form</title>
+<title>Owner Form</title>
+
+
+
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+  
+  <script type="text/javascript" src="./views/js/app.js"></script>
+  
+  <style type="text/css">
+  
+  .error{
+  color:red
+  }
+  </style>
+  
+   
+  
+  
+  
 </head>
 <body>
-<h2>UserForm </h2>
 
-<P>${succMsg }</P>
-<P>${errMsg}</P>
-<form:form action="saveUser" method="POST" modelAttribute="userObj">
+<P style="color:green;">${succMsg }</P>
+<P style="color:red;">${errMsg}</P>
+
+<h2 style="color:grey;">Vehicle OwnerForm </h2>
+<form:form action="saveowner" method="POST" modelAttribute="ownerObj" id="OwnerForm">
 
 <table>
   
 
   <tr>
       <td> FirstName:</td>
-      <td><form:input path="firstName"/></td>
+      <td><form:input id="firstName" path="firstName"/></td>
   </tr>
   
   <tr>
       <td> Last Name:</td>
-      <td><form:input path="lastName"/></td>
+      <td><form:input id="lastName" path="lastName"/></td>
   </tr>
   
   
   
   <tr>
       <td> Email:</td>
-      <td><form:input path="email"/></td>
+      <td><form:input id="email" path="email"/></td>
   </tr>
   
   <tr>
       <td> PhNo:</td>
-      <td><form:input path="phno"/></td>
+      <td><form:input id="phno" path="phno"/></td>
   </tr>
   
   <tr>
       <td> Gender:</td>
       <td>
-      <form:radiobutton path="gender" value="male"/>Male
-      <form:radiobutton path="gender" value="female"/>Fe-Male
+      <form:radiobutton  path="gender" value="male"/>Male
+      <form:radiobutton  path="gender" value="female"/>Fe-Male
       
       </td>
   </tr>
@@ -55,7 +75,7 @@
   
   
   <tr>
-     
+     <td><input type="reset" value="Reset"/></td>
       <td><input type="submit" value="Submit"/></td>
   </tr>
 
@@ -65,7 +85,7 @@
 
 </form:form>
 
-<a href="viewUsers">view Users</a>
+<!-- <a href="viewowners">view Owners</a> -->
 
 </body>
 </html>

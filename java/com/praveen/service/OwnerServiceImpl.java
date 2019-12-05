@@ -17,49 +17,49 @@ import com.praveen.repository.OwnerDeatilsRepository;
 public class OwnerServiceImpl implements OwnerService {
 
 	@Autowired
-	private OwnerDeatilsRepository userDtlsRepo;
+	private OwnerDeatilsRepository ownerDtlsRepo;
 	
 	@Override
-	public boolean saveUserDetails(Owner user) {
+	public boolean saveownerDetails(Owner owner) {
 		//logic to insert data
 		
 		OwnerEntity entity = new OwnerEntity();
 		
 		// copy data from domain obj to entity obj
 		
-		BeanUtils.copyProperties(user, entity);
+		BeanUtils.copyProperties(owner, entity);
 		
-		OwnerEntity savedEntity =  userDtlsRepo.save(entity);
-		return savedEntity.getUserid() > 0;
+		OwnerEntity savedEntity =  ownerDtlsRepo.save(entity);
+		return savedEntity.getownerid() > 0;
 	}
 
 	@Override
-	public List<Owner> retriveAllUsers() {
+	public List<Owner> retriveAllowners() {
 		//logic to retrive records
 		
-		List<Owner> usersList = new ArrayList<Owner>();
+		List<Owner> ownersList = new ArrayList<Owner>();
 		
 		PageRequest pageRequest = PageRequest.of(0,5);
 		
-	Page<OwnerEntity> findAll =	userDtlsRepo.findAll(pageRequest);
+	Page<OwnerEntity> findAll =	ownerDtlsRepo.findAll(pageRequest);
 	
-	List<OwnerEntity> userEntities = findAll.getContent();
+	List<OwnerEntity> ownerEntities = findAll.getContent();
 	
-	//List<UserEntity> userEntities =	userDtlsRepo.findAll();
+	//List<ownerEntity> ownerEntities =	ownerDtlsRepo.findAll();
 	
 	
 	
-	userEntities.forEach(entity -> {
+	ownerEntities.forEach(entity -> {
 		
-		Owner  user = new Owner();
+		Owner  owner = new Owner();
 		
-		BeanUtils.copyProperties(entity, user);
-		usersList.add(user);
+		BeanUtils.copyProperties(entity, owner);
+		ownersList.add(owner);
 		
 		
 	});
 	
-		return usersList;
+		return ownersList;
 	}
 
 }

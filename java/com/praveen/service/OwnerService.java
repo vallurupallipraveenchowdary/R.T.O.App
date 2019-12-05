@@ -8,8 +8,8 @@ import com.praveen.domain.Owner;
 
 public interface OwnerService {
 
-	public boolean saveUserDetails(Owner user);
+	public boolean saveownerDetails(Owner owner);
 	
-	public List<Owner> retriveAllUsers();
+	public List<Owner> retriveAllowners();
 	
 }
