@@ -9,42 +9,39 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.praveen.constant.OwnerConstants;
 import com.praveen.domain.Owner;
-import com.praveen.service.OwnerService;
+import com.praveen.entity.OwnerEntity;
+import com.praveen.service.OwnerServiceImpl;
 
 
 @Controller
 public class OwnerController {
 	
 	@Autowired
-	private OwnerService ownerservice;
+	private OwnerServiceImpl ownerService;
 	
 	@RequestMapping(value="/displayForm")
-	public String DisplayownerForm(Model model) {
+	public String DisplayForm(Model model) {
 		
 		Owner owner = new Owner(); //pojo
 		
 		// sending data from controller to ui
 		
+		
 		model.addAttribute("ownerObj", owner);
 		
-		return "index"; //logical view name
+		return OwnerConstants.DISPLAY_FORM; //logical view name
 	}
-	@RequestMapping(value="/saveowner", method = RequestMethod.POST)
-	public String handlesubmitBtn(@ModelAttribute("ownerObj") Owner owner, Model model) {
+	@RequestMapping(value="/saveownerDetails", method=RequestMethod.POST)
+	public String saveownerDetailsForm(@ModelAttribute("ownerObj") Owner owner, Model model) {
 		
-		System.out.println(owner);
 		
-		boolean isSaved = ownerservice.saveownerDetails(owner);
-		if(isSaved) {
-			model.addAttribute("succMsg", "Record saved sucessfully");
-		}else {
-			model.addAttribute("errMsg", "Record is not Saved");
-		}
 		
-		model.addAttribute("owner",owner);
+		OwnerEntity ownerEntity = ownerService.saveownerDetails(owner);
 		
-		return "index";
+		Integer ownerId = ownerEntity.getOwnerId();
+		return "redirect:/AddressForm?ownerId="+ownerId;
 	}
 }
 	

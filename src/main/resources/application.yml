@@ -10,16 +10,12 @@ spring:
 
   datasource:
     driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/formdb
+    url: jdbc:mysql://localhost:3306/dbname
     username: root
     password: Pr@veen4795
   jpa:
+    show-sql: true
     hibernate:
-      ddl-auto: create
-    properties:
-      hibernate:
-        show_sql: true
-        format_sql: true
-        dialect: org.hibernate.dialect.MySQL5Dialect
-    
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL5Dialect
     

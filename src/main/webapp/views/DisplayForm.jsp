@@ -16,6 +16,30 @@
   
   <script type="text/javascript" src="./views/js/app.js"></script>
   
+  <script>
+$("#email").blur(function() {
+	alert("hi");
+    // get the form values
+    var enteredEmail = $('#email').val();
+    $.ajax({
+        type: "GET",
+        url: window.location + "/validateEmail",
+        data: "email=" + enteredEmail ,
+        success: function(result){
+            // we have the response
+            if(result == 'Duplicate'){
+                 $('#emailMsg').html("email already registered..!");
+                 $('#email').focus();
+                 $('#createAccBtn').prop("disabled",true)
+             }else{
+            	 $('#emailMsg').html("");
+            	 $('#createAccBtn').prop("disabled",false)
+             }
+         }
+    })
+ });
+</script>
+  
   <style type="text/css">
   
   .error{
@@ -34,7 +58,7 @@
 <P style="color:red;">${errMsg}</P>
 
 <h2 style="color:grey;">Vehicle OwnerForm </h2>
-<form:form action="saveowner" method="POST" modelAttribute="ownerObj" id="OwnerForm">
+<form:form action="saveownerDetails" method="POST" modelAttribute="ownerObj" id="OwnerForm">
 
 <table>
   
@@ -76,7 +100,7 @@
   
   <tr>
      <td><input type="reset" value="Reset"/></td>
-      <td><input type="submit" value="Submit"/></td>
+      <td><input type="submit" value="Next"/></td>
   </tr>
 
 

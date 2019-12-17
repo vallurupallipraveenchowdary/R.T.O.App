@@ -1,10 +1,15 @@
 package com.praveen.entity;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import lombok.Data;
 
@@ -17,7 +22,7 @@ public class OwnerEntity {
 	@GeneratedValue
 	@Column(name="OWNER_ID")
 	
-	private Integer ownerid;
+	private Integer ownerId;
 	private String firstName;
 	
 	private String lastName;
@@ -25,11 +30,35 @@ public class OwnerEntity {
 	private Long phno;
 	private String gender;
 	
-	public Integer getownerid() {
-		return ownerid;
+	
+	
+	@CreationTimestamp
+    private LocalDateTime createDateTime;
+	
+	@UpdateTimestamp
+    private LocalDateTime updateDateTime;
+	
+	 public LocalDateTime getCreateDateTime() {
+		return createDateTime;
 	}
-	public void setownerid(Integer ownerid) {
-		this.ownerid = ownerid;
+	public void setCreateDateTime(LocalDateTime createDateTime) {
+		this.createDateTime = createDateTime;
+	}
+	public LocalDateTime getUpdateDateTime() {
+		return updateDateTime;
+	}
+	public void setUpdateDateTime(LocalDateTime updateDateTime) {
+		this.updateDateTime = updateDateTime;
+	}
+	
+	
+	
+	
+	public Integer getOwnerId() {
+		return ownerId;
+	}
+	public void setOwnerId(Integer ownerId) {
+		this.ownerId = ownerId;
 	}
 	public String getFirstName() {
 		return firstName;

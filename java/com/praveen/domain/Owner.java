@@ -8,7 +8,7 @@ import lombok.Data;
 public class Owner {
 	
   
-	private Integer ownerid;
+	
 	
 	private String firstName;
 	private String lastName;
@@ -47,12 +47,8 @@ public class Owner {
 		this.gender = gender;
 	}
 	
-	public Integer getownerid() {
-		return ownerid;
-	}
-	public void setownerid(Integer ownerid) {
-		this.ownerid = ownerid;
-	}
+	
+	
 	
 	
 	
