@@ -10,7 +10,14 @@
 <title>Owner Form</title>
 
 
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
   <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
   
@@ -54,13 +61,17 @@ $("#email").blur(function() {
 </head>
 <body>
 
+
 <P style="color:green;">${succMsg }</P>
 <P style="color:red;">${errMsg}</P>
 
 <h2 style="color:grey;">Vehicle OwnerForm </h2>
 <form:form action="saveownerDetails" method="POST" modelAttribute="ownerObj" id="OwnerForm">
 
+ 
 <table>
+
+
   
 
   <tr>

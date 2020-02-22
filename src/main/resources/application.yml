@@ -19,3 +19,8 @@ spring:
       ddl-auto: update
     database-platform: org.hibernate.dialect.MySQL5Dialect
     
+rto:
+    messages:
+      ownerSaveScc :  your Registration is sucessfullly Your Registration ID = 
+      ownerSaveFail : your Registration is Fail
+  

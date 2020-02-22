@@ -39,19 +39,19 @@
 	<table>
 		<tr>
 			<td>Enter House Number :</td>
-			<td>${addressObj.FlatNumber}</td>
+			<td>${addressObj.flatNumber}</td>
 		</tr>
 		<tr>
 			<td>Enter Street Name :</td>
-			<td>${addressObj.StreetName}</td>
+			<td>${addressObj.streetName}</td>
 		</tr>
 		<tr>
 			<td>Select City Name :</td>
-			<td>${addressObj.CityName}</td>
+			<td>${addressObj.cityName}</td>
 		</tr>
 		<tr>
 			<td>Enter ZipCode :</td>
-			<td>${addressObj.ZipCode}</td>
+			<td>${addressObj.zipCode}</td>
 		</tr>
 		</table>
 	
@@ -61,44 +61,38 @@
 	<table>
 	    <tr>
 			<td>Enter Vehicle Type :</td>
-			<td>${vehicledetailsObj.SelectVehicle}</td>
+			<td>${vehicledetailsObj.selectVehicle}</td>
 		</tr>
 		<tr>
 			<td>Enter Company name :</td>
-			<td>${vehicledetailsObj.VehicleCompany}</td>
+			<td>${vehicledetailsObj.vehicleCompany}</td>
 		</tr>
 		<tr>
 			<td>Enter Manufacturing Year :</td>
-			<td>${vehicledetailsObj.ManufacturingYear}</td>
+			<td>${vehicledetailsObj.manufacturingYear}</td>
 		</tr>
 		<tr>
 			<td>Enter Vehicle color :</td>
-			<td>${vehicledetailsObj.VehicleColor}</td>
+			<td>${vehicledetailsObj.vehicleColor}</td>
 		</tr>
 		</table>
 		
-		<form action="registerVehicle?ownerId=${OWNER_ID}">	
-		   <table>
-		     <tr>
-		       <td><input type="submit" value="Confirm" /></td>
-		     </tr>
-		   </table>
-		</form>
 		
 		
 		
-	<%-- <form:form action="saveVehicleRegistrationDetails" method="POST" modelAttribute="vehicleRegObj">
+		
+	 <form:form action="saveVehicleRegistrationDetails" method="POST" modelAttribute="vehicleRegObj">
 		<table>
 			<tr>
-				<td><input type="hidden" name="vehicleDetailsId" value="${OWNER_ID}"></td>
-				<td>Vehicle Owner Id</td>
-				<td><form:input path="ownerId" readonly="true" /></td>
+				<td>Owner ID</td>
+				<td>${vehicleRegObj.ownerId}</td>
+				<form:hidden path="ownerId" />
 			</tr>
 			<tr>
-				<td><input type="submit" value="Confirm"></td>
+				<td><input type="submit" value="Register"></td>
 			</tr>
 		</table>
-	</form:form> --%>
+	</form:form> 
 
 </body>
 </html>
